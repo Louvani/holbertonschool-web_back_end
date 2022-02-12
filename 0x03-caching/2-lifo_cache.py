@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 '''
-Module
+Module 2. LIFO Caching
 '''
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    ''' clss '''
+    ''' clss 2. LIFO Caching '''
 
     def __init__(self):
-        ''' constructor  '''
+        ''' constructor 2. LIFO Caching  '''
         self.stack = []
         super().__init__()
 
