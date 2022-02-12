@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-Mudule
+Mudule 3. LRU Caching
 '''
 BaseCaching = __import__('base_caching').BaseCaching
 
