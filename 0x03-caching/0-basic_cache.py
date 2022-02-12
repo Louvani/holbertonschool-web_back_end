@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 '''
-Module
+Module 0-basic_cache.py
 '''
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache(BaseCaching):
-    ''' Function '''
+    ''' Class BasicCache '''
     def put(self, key, item):
         ''' put a item to the dictionary '''
         if key and item:
