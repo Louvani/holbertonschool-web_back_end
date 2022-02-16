@@ -14,10 +14,13 @@ class Auth():
         """Chack path in the list of exluded paths"""
         if not path or not excluded_paths or len(excluded_paths) == 0:
             return True
+
         if path[-1] != '/':
             path += '/'
-        if path in excluded_paths:
-            return False
+
+        for pth in excluded_paths:
+            if path[:pth.find('*')] in pth[:pth.find('*')]:
+                return False
         return True
 
     def authorization_header(self, request=None) -> str:
