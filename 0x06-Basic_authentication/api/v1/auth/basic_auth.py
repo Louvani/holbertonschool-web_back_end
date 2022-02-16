@@ -3,7 +3,6 @@
 BasicAuth
 """
 from api.v1.auth.auth import Auth
-from models.user import User
 import base64
 from typing import TypeVar
 
@@ -21,4 +20,16 @@ class BasicAuth(Auth):
         if (isinstance(authorization_header, str) and
                 authorization_header.startswith('Basic ')):
             return authorization_header[6:]
+        return None
+
+def decode_base64_authorization_header(
+        self, base64_authorization_header: str) -> str:
+    """Returns the decoded value of a Base64 string
+    base64_authorization_header"""
+    if not base64_authorization_header or not isinstance(base64_authorization_header, str):
+        return None
+    try:
+        return base64.b64decode(
+            base64_authorization_header.encode('utf-8')).decode('utf-8')
+    except Exception:
         return None
