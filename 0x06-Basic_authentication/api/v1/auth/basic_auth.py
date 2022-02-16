@@ -47,3 +47,7 @@ def extract_user_credentials(
         return (None, None)
 
     return (decoded[:decoded.find(':')], decoded[decoded.find(':') + 1:])
+
+def user_object_from_credentials(
+        self, user_email: str, user_pwd: str) -> TypeVar('User'):
+    """returns the User instance based on his email and password."""
