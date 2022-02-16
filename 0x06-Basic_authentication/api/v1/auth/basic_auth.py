@@ -33,3 +33,17 @@ def decode_base64_authorization_header(
             base64_authorization_header.encode('utf-8')).decode('utf-8')
     except Exception:
         return None
+
+def extract_user_credentials(
+        self, decoded: str) -> (str, str):
+    """returns the user email and password from the Base64 decoded value."""
+    if decoded is None:
+        return (None, None)
+
+    if not isinstance(decoded, str):
+        return (None, None)
+
+    if ':' not in decoded:
+        return (None, None)
+
+    return (decoded[:decoded.find(':')], decoded[decoded.find(':') + 1:])
