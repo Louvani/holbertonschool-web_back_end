@@ -37,4 +37,5 @@ This project is for learning purpose, the idea is undertand what the authenticat
 14. Require auth with stars
 
 ## Author
-* **Paula Louvani** - [Louvani](github.com/Louvani)
+
+**Paula Louvani** - [Louvani](github.com/Louvani)
