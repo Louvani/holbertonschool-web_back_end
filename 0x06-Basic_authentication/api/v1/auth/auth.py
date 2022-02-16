@@ -12,7 +12,13 @@ class Auth():
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Chack path in the list of exluded paths"""
-        return False
+        if not path or not excluded_paths or len(excluded_paths) == 0:
+            return True
+        if path[-1] != '/':
+            path += '/'
+        if path in excluded_paths:
+            return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """Return None"""
