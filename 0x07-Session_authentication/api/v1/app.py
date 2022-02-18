@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""
-Route module for the API
-"""
+"""Route module API"""
 from os import getenv
-from api.v1.views import app_views
-from flask import Flask, jsonify, abort, request
-from flask_cors import (CORS, cross_origin)
 
+from api.v1.views import app_views
+from flask import Flask, abort, jsonify, request
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
@@ -32,32 +30,28 @@ elif getenv('AUTH_TYPE') == 'session_db_auth':
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """ Not found handler
-    """
+    """ Not found handler"""
     return jsonify({"error": "Not found"}), 404
 
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """ Request unauthorized
-    """
+    """ Request unauthorized"""
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def forbidden(error) -> str:
-    """ Request forbidden
-    """
+    """ Request forbidden"""
     return jsonify({"error": "Forbidden"}), 403
 
 
 @app.before_request
 def before_request():
-    """ Before request
-    """
-    excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/',
+    """ Before request"""
+    excluded = ['/api/v1/status/', '/api/v1/unauthorized/',
                       '/api/v1/forbidden/', '/api/v1/auth_session/login/']
-    if auth and auth.require_auth(request.path, excluded_paths):
+    if auth and auth.require_auth(request.path, excluded):
         if (not auth.authorization_header(request) and
                 not auth.session_cookie(request)):
             abort(401)
