@@ -13,6 +13,8 @@ class DB:
     """
     DB class
     """
+    session_args = ['id', 'email', 'hashed_password',
+                  'session_id', 'reset_token']
 
     def __init__(self):
         """
@@ -40,4 +42,18 @@ class DB:
         user = User(email=email, hashed_password=hashed_password)
         self._session.add(user)
         self._session.commit()
+        return user
+
+    def find_user_by(self, **kwargs) -> User:
+        """
+        Return the first row in the users table after filtering
+        """
+        if not kwargs:
+            raise InvalidRequestError
+        for arg in kwargs:
+            if arg not in self.session_args:
+                raise InvalidRequestError
+        user = self._session.query(User).filter_by(**kwargs).first()
+        if not user:
+            raise NoResultFound
         return user
