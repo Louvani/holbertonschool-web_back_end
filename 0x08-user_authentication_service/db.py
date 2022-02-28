@@ -14,7 +14,7 @@ class DB:
     DB class
     """
     session_args = ['id', 'email', 'hashed_password',
-                  'session_id', 'reset_token']
+                    'session_id', 'reset_token']
 
     def __init__(self):
         """
