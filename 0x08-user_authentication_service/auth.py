@@ -9,7 +9,7 @@ from db import DB
 from user import User
 
 
-def _hash_password(password: str) -> str:
+def _hash_password(password: str) -> bytes:
     """
     takes in a password string arguments and returns bytes.
     """
@@ -38,7 +38,7 @@ class Auth:
         password string arguments and return a User object.
         """
         try:
-            self._db.find_user_by(email=email):
+            self._db.find_user_by(email=email)
             raise ValueError('User {} already exists'.format(email))
         except NoResultFound:
             return self._db.add_user(email, _hash_password(password))
