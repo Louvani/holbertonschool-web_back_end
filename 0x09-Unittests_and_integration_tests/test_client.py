@@ -91,7 +91,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         self.mock.assert_called()
 
     def test_public_repos_with_license(self):
-        '''Test public_repos with license 'apache-2.0''''
+        '''Test public_repos with license 'apache-2.0'''
         g = client.GithubOrgClient('test')
         self.assertEqual(g.org, self.org_payload)
         self.assertEqual(g.repos_payload, self.repos_payload)
