@@ -63,11 +63,11 @@ class TestMemoize(unittest.TestCase):
                 '''Return a method'''
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method') as mock:
+        with patch.object(TestClass, 'a_method') as mock_:
             test_class = TestClass()
             test_class.a_property
             test_class.a_property
-            mock.assert_called_once()
+            mock_.assert_called_once()
 
 
 if __name__ == '__main__':
