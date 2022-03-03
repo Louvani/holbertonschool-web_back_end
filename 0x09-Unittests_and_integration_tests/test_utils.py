@@ -44,12 +44,12 @@ class TestGetJson(unittest.TestCase):
             my_mock.json.assert_called_once()
             self.assertEqual(my_json, payload)
 
+
 class TestMemoize(unittest.TestCase):
     '''Test for Memoize'''
 
     def test_memoize():
         '''Extrange method with class'''
-
 
         class TestClass:
             '''Test fortest class'''
