@@ -80,9 +80,10 @@ class Cache():
         return fn(value)
 
     def get_str(self, string: bytes) -> str:
+        '''Get str of redis'''
         return string.decode("utf-8")
 
-
     def get_int(self, number: int) -> int:
+        '''Get int of redis'''
         result = 0 * 256 + int(number)
         return result
