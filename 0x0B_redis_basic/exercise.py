@@ -7,8 +7,8 @@ import uuid
 from functools import wraps
 
 
-
 def count_calls(method: Callable) -> Callable:
+    '''Wraper to count calls of store'''
     key = method.__qualname__
 
     @wraps(method)
@@ -28,7 +28,6 @@ class Cache():
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-
     @count_calls
     def store(self, data: Union[bytes, str, int, float]) -> str:
         '''Generate a raandom key for the data'''
@@ -38,8 +37,8 @@ class Cache():
 
     def get(self, key: str, fn: Optional[Callable] = None):
         '''convert the data back to the desired format.'''
-        value =  self._redis.get(key)
-        if value == None  or fn == None:
+        value = self._redis.get(key)
+        if value is None or fn is None:
             return value
         return fn(value)
 
