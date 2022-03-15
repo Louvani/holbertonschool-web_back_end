@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''Writing strings to Redis'''
 
+from ast import Call
 from typing import Union, Optional, Callable
 import redis
 import uuid
@@ -31,6 +32,24 @@ def call_history(method: Callable) -> Callable:
         return returned_method
     return wrap
 
+def replay(method: Callable):
+    '''display the history of calls of a particular function.'''
+    get_self = method.__self__
+    name = method.__qualname__
+    key = get_self.get(name)
+
+    if key:
+        times = get_self.get(key, str)
+        inputs = get_self._redis.lrange(name + ":inputs", 0, -1)
+        outputs = get_self._redis.lrange(name + ":outputs", 0, -1)
+
+        print(name + ' was called ' + times + 'times:')
+        zipvalues = zip(inputs, outputs)
+        result = list(zipvalues)
+        for k, v in result:
+            name_ = get_self.get_str(k)
+            val = get_self.get_str(v)
+            print(f"{name}(*{name_}) -> {val}")
 
 class Cache():
 
