@@ -45,7 +45,7 @@ def replay(method: Callable):
         inputs = get_self._redis.lrange(name + ":inputs", 0, -1)
         outputs = get_self._redis.lrange(name + ":outputs", 0, -1)
 
-        print(name + ' was called ' + times + 'times:')
+        print(name + ' was called ' + times + ' times:')
         zipvalues = zip(inputs, outputs)
         result = list(zipvalues)
         for k, v in result:
