@@ -18,6 +18,7 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrap
 
+
 def call_history(method: Callable) -> Callable:
     '''store the history of inputs and outputs for a particular function.'''
     inputs = method.__qualname__ + ":inputs"
@@ -31,6 +32,7 @@ def call_history(method: Callable) -> Callable:
         self._redis.rpush(outputs, str(returned_method))
         return returned_method
     return wrap
+
 
 def replay(method: Callable):
     '''display the history of calls of a particular function.'''
@@ -50,6 +52,7 @@ def replay(method: Callable):
             name_ = get_self.get_str(k)
             val = get_self.get_str(v)
             print(f"{name}(*{name_}) -> {val}")
+
 
 class Cache():
 
