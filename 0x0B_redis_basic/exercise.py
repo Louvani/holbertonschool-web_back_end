@@ -55,9 +55,8 @@ def replay(method: Callable):
 
 
 class Cache():
-
-    parametrize = {}
     '''Keep cahe data into deisdb'''
+    parametrize = {}
 
     def __init__(self) -> None:
         '''Initialice a instace of redis'''
