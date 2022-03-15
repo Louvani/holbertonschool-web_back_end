@@ -41,7 +41,7 @@ def replay(method: Callable):
     key = get_self.get(name)
 
     if key:
-        times = get_self.get(key, str)
+        times = get_self.get_str(key)
         inputs = get_self._redis.lrange(name + ":inputs", 0, -1)
         outputs = get_self._redis.lrange(name + ":outputs", 0, -1)
 
@@ -79,8 +79,10 @@ class Cache():
             return value
         return fn(value)
 
-    def get_str():
-        pass
+    def get_str(self, string: bytes) -> str:
+        return string.decode("utf-8")
 
-    def get_int():
-        pass
+
+    def get_int(self, number: int) -> int:
+        result = 0 * 256 + int(number)
+        return result
