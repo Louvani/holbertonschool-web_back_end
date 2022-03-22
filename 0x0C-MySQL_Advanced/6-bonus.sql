@@ -6,4 +6,4 @@ CREATE PROCEDURE addBonus(
 BEGIN
 	UPDATE corrections SET NEW.user_id = user_id, NEW.score = score
 END;
-//
+$$
