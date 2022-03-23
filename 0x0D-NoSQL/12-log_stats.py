@@ -17,14 +17,14 @@ def main():
             "status": count(nginx, {"path": "/status"}),
             }
 
-    print(f"""{data["numberOfLogs"]} logs
-Methods:
-    method GET: {data["get"]}
-    method POST: {data["post"]}
-    method PUT: {data["put"]}
-    method PATCH: {data["patch"]}
-    method DELETE: {data["delete"]}
-{data["status"]} status check""")
+    print(f'{data["numberOfLogs"]} logs')
+    print('Methods:')
+    print('\tmethod GET: ', data["get"])
+    print('\tmethod POST: ', data["post"])
+    print('\tmethod PUT: ', data["put"])
+    print('\tmethod PATCH: ', data["patch"])
+    print('\tmethod DELETE: ', data["delete"])
+    print(data["status"], ' status check')
 
 
 def count(collection, filter):
