@@ -19,12 +19,12 @@ def main():
 
     print(f'{data["numberOfLogs"]} logs')
     print('Methods:')
-    print('\tmethod GET: ', data["get"])
-    print('\tmethod POST: ', data["post"])
-    print('\tmethod PUT: ', data["put"])
-    print('\tmethod PATCH: ', data["patch"])
-    print('\tmethod DELETE: ', data["delete"])
-    print(data["status"], ' status check')
+    print('\tmethod GET:', data["get"])
+    print('\tmethod POST:', data["post"])
+    print('\tmethod PUT:', data["put"])
+    print('\tmethod PATCH:', data["patch"])
+    print('\tmethod DELETE:', data["delete"])
+    print(data["status"], 'status check')
 
 
 def count(collection, filter):
