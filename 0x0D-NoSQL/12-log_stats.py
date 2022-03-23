@@ -3,13 +3,14 @@
 from multiprocessing import log_to_stderr
 from pymongo import MongoClient
 
-def main():
 
+def main():
+    """Displays stats of """
     client = MongoClient('mongodb://localhost:27017')
     nginx = client.logs.nginx
 
     data = {"numberOfLogs": count(nginx, {}),
-            "get": count(nginx,{"method": "GET"}),
+            "get": count(nginx, {"method": "GET"}),
             "post": count(nginx, {"method": "POST"}),
             "put": count(nginx, {"method": "PUT"}),
             "patch": count(nginx, {"method": "PATCH"}),
