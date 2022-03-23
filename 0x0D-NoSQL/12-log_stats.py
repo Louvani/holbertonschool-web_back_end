@@ -29,7 +29,7 @@ def main():
 
 
 def count(collection, filter):
-    return collection.count_douments(filter)
+    return collection.count_documents(filter)
 
 
 if __name__ == "__main__":
