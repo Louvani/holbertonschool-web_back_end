@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """provides some stats about Nginx logs stored in MongoDB"""
-from multiprocessing import log_to_stderr
 from pymongo import MongoClient
 
 
@@ -29,6 +28,7 @@ Methods:
 
 
 def count(collection, filter):
+    """Count the number of documments"""
     return collection.count_documents(filter)
 
 
