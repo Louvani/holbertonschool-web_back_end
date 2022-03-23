@@ -19,13 +19,13 @@ def main():
             }
 
     print(f"""{data["numberOfLogs"]} logs
-    Methods:
-        method GET: {data["get"]}
-        method POST: {data["post"]}
-        method PUT: {data["put"]}
-        method PATCH: {data["patch"]}
-        method DELETE: {data["delete"]}
-    {data["status"]} status check""")
+Methods:
+    method GET: {data["get"]}
+    method POST: {data["post"]}
+    method PUT: {data["put"]}
+    method PATCH: {data["patch"]}
+    method DELETE: {data["delete"]}
+{data["status"]} status check""")
 
 
 def count(collection, filter):
