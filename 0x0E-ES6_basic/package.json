@@ -1,0 +1,33 @@
+{
+  "name": "0x0e-es6_basic",
+  "version": "1.0.0",
+  "description": "## Learning Objectives * What ES6 is * New features introduced in ES6 * The difference between a constant and a variable * Block-scoped variables * Arrow functions and function parameters default to them * Rest and spread function parameters * String templating in ES6 * Object creation and their properties in ES6 * Iterators and for-of loops ## Setup * Install NodeJS 12.11.x * Install Jest * Install Babel * Install ESLint",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint",
+    "check-lint": "lint [0-9]*.js",
+    "dev": "npx babel-node",
+    "test": "jest",
+    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Louvani/holbertonschool-web_back_end.git"
+  },
+  "author": "Louvani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Louvani/holbertonschool-web_back_end/issues"
+  },
+  "homepage": "https://github.com/Louvani/holbertonschool-web_back_end#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.8.0",
+    "@babel/preset-env": "^7.6.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0"
+  }
+}
