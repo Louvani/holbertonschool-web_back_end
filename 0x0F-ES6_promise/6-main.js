@@ -1,3 +1,4 @@
-import handleProfileSignup from './6-final-user';
+/* eslint-disable import/extensions */
+import handleProfileSignup from './6-final-user.js';
 
-console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg"));
+console.log(handleProfileSignup('Bob', 'Dylan', 'bob_dylan.jpg'));
