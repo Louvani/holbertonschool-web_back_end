@@ -1,4 +1,4 @@
-import ClassRoom from "./0-classroom.js";
+import ClassRoom from './0-classroom.js';
 
 // why don't appear on github?
 export default function initializeRooms() {
