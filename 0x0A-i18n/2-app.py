@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''Flask app to translate'''
 
-from flask import Flask, render_template, g, request
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -18,11 +18,12 @@ class Config(object):
 app.config.from_object(Config)
 
 
-@babel.localselector
+@babel.localeselector
 def get_locale():
-    user = getattr(g, 'user', None)
-    if user is not None:
-        return user.locale
+    ''' request.accept_languages to '''
+    # user = getattr(g, 'user', None)
+    # if user is not None:
+    #     return user.locale
     return request.accept_languages.best_match(["en", "fr"])
 
 
