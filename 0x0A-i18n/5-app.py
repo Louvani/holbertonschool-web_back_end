@@ -24,6 +24,7 @@ class Config(object):
 
 app.config.from_object(Config)
 
+
 def get_user():
     '''Return an user by ID'''
     id = request.args.get("login_as")
