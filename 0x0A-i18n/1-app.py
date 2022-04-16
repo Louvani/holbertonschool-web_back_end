@@ -11,7 +11,7 @@ babel = Babel(app)
 class Config(object):
     '''Configuration of the language for the app'''
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = 'EN'
+    BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
