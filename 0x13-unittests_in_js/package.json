@@ -2,13 +2,15 @@
   "name": "0x13-unittests_in_js",
   "version": "1.0.0",
   "description": "## Learning Objectives * How to use Mocha to write a test suite * How to use different assertion libraries (Node or Chai) * How to present long test suites * When and how to use spies * When and how to use stubs * What are hooks and when to use them * Unit testing with Async functions * How to write integration tests with a small node server",
-  "main": "index.js",
+  "main": "0-calcul.js",
   "scripts": {
     "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^9.2.2"
+    "mocha": "^9.2.2",
+    "chai": "^4.2.0",
+    "sinon": "^9.2.3"
   }
 }
