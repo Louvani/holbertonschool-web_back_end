@@ -1,35 +1,38 @@
+'use strict';
 const assert = require('assert');
-const calculateNumber = require('./0-calcul.js');
+const calculateNumber = require('./1-calcul.js');
 
-describe('calculateNumber', () => {
-  it('check output when SUM ', () => {
-    assert.strictEqual(calculateNumber('SUM', 1, 3), 4);
+describe('calculateNumber type == SUM', () => {
+  it('checks the output', () => {
+    assert.strictEqual(calculateNumber('SUM', -1, -1), -2);
+    assert.strictEqual(calculateNumber('SUM', 1, -1), 0);
+    assert.strictEqual(calculateNumber('SUM', -1, 1), 0);
+    assert.strictEqual(calculateNumber('SUM', 0.0, 0), 0);
+    assert.strictEqual(calculateNumber('SUM', 4.5, 1.4), 6);
+    assert.strictEqual(calculateNumber('SUM', 1.4, 4.5), 6);
     assert.strictEqual(calculateNumber('SUM', 3.7, 1), 5);
-    assert.strictEqual(calculateNumber('SUM', 1.5, 3.7), 6);
-    assert.strictEqual(calculateNumber('SUM', -1, -2), -3);
+    assert.strictEqual(calculateNumber('SUM', 1, 3.7), 5);
+    assert.strictEqual(calculateNumber('SUM', 1, 3), 4);
   });
-  it('check output when SUBSTRACT ', () => {
-    assert.strictEqual(calculateNumber(1, 3), 4);
-    assert.strictEqual(calculateNumber(3.7, 1), 5);
-    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
-    assert.strictEqual(calculateNumber(3.7, 1.2), 5);
-    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-    assert.strictEqual(calculateNumber(1, 3.7), 5);
-    assert.strictEqual(calculateNumber(-1, -2), -3);
+});
+
+describe('calculateNumber type == SUBTRACT', () => {
+  it('checks the output', () => {
+    assert.strictEqual(calculateNumber('SUBTRACT', -1.5, 0), -1);
+    assert.strictEqual(calculateNumber('SUBTRACT', -1, 1), -2);
+    assert.strictEqual(calculateNumber('SUBTRACT', 2, 4.5), -3);
+    assert.strictEqual(calculateNumber('SUBTRACT', 0.0, 5), -5);
+    assert.strictEqual(calculateNumber('SUBTRACT', 4.5, 2), 3);
+    assert.strictEqual(calculateNumber('SUBTRACT', 3.1, 2.5), 0);
+    assert.strictEqual(calculateNumber('SUBTRACT', 5, 3), 2);
   });
-  it('check output when DIVIDE ', () => {
-    assert.strictEqual(calculateNumber(1, 3), 4);
-    assert.strictEqual(calculateNumber(3.7, 1), 5);
-    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
-    assert.strictEqual(calculateNumber(3.7, 1.2), 5);
-    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-    assert.strictEqual(calculateNumber(1, 3.7), 5);
-    assert.strictEqual(calculateNumber(-1, -2), -3);
-  });
-  it('return NaN if arguments are incorrects', () => {
-    assert.strictEqual(isNaN(calculateNumber()), true);
-    assert.strictEqual(isNaN(calculateNumber(5)), true);
-    assert.strictEqual(isNaN(calculateNumber('5', 'abc')), true);
-    assert.strictEqual(isNaN(calculateNumber('5abc', '3')), true);
+});
+
+describe('calculateNumber type == DIVIDE', () => {
+  it('check the output', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', 1, 0), 'Error');
+    assert.strictEqual(calculateNumber('DIVIDE', -1, 1), -1);
+    assert.strictEqual(calculateNumber('DIVIDE', 0.0, 2), 0);
+    assert.strictEqual(calculateNumber('DIVIDE', 2, 2.5), 0.6666666666666666);
   });
 });
